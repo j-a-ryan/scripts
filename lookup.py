@@ -1,0 +1,117 @@
+import re
+
+min_ru_for_infection = 157
+
+risk_units_lookup = {43:0,
+                     44:0.95,
+                     45:1.9,
+                     46:2.85,
+                     47:3.8,
+                     48:4.75,
+                     49:5.7,
+                     50:6.65,
+                     51:7.6,
+                     52:8.55,
+                     53:9.5,
+                     54:10.45,
+                     55:11.4,
+                     56:12.35,
+                     57:13.3,
+                     58:14.25,
+                     59:15.2,
+                     60:16.15,
+                     61:17.1,
+                     62:18.05,
+                     63:19,
+                     64:19.95,
+                     65:20.9,
+                     66:21.85,
+                     67:22.8,
+                     68:23.75,
+                     69:24.7,
+                     70:25.65,
+                     71:26.6,
+                     72:27.55,
+                     73:28.5,
+                     74:29.45,
+                     75:30.4,
+                     76:31.35,
+                     77:27.96,
+                     78:24.63,
+                     79:21.29,
+                     80:17.96,
+                     81:14.63,
+                     82:11.29,
+                     83:7.96,
+                     84:4.63,
+                     85:1.29,
+                     86:0}
+
+hours_drying_time = 6  # stops infection cycle
+
+all_columns_randolph_type_station = ['Date & Time',
+               'Inside Temp - °F',
+               'High Inside Temp - °F',
+               'Low Inside Temp - °F',
+               'Inside Hum - %',
+               'High Inside Hum - %',
+               'Low Inside Hum - %',
+               'Inside Dew Point - °F',
+               'Inside Heat Index - °F',
+               'Barometer - in Hg',
+               'High Bar - in Hg',
+               'Low Bar - in Hg',
+               'Absolute Pressure - in Hg',
+               'Temp 1 - °F',
+               'High Temp 1 - °F',
+               'Low Temp 1 - °F',
+               'Temp 2 - °F',
+               'High Temp 2 - °F',
+               'Low Temp 2 - °F',
+               'Leaf Wetness 1',
+               'High Leaf Wetness 1',
+               'Low Leaf Wetness 1',
+               'Leaf Wetness 1 Minutes',
+               'Leaf Wetness 2',
+               'High Leaf Wetness 2',
+               'Low Leaf Wetness 2',
+               'Leaf Wetness 2 Minutes']
+
+date_time_field_name = ''
+for field in all_columns_randolph_type_station:
+    date_time_field_name = re.match('^Date', field)
+    if date_time_field_name:
+        date_time_field_name = str(date_time_field_name.string)
+        break
+
+columns_unwanted_randolph_type_station = ['Inside Temp - °F',
+               'High Inside Temp - °F',
+               'Low Inside Temp - °F',
+               'Inside Hum - %',
+               'High Inside Hum - %',
+               'Low Inside Hum - %',
+               'Inside Dew Point - °F',
+               'Inside Heat Index - °F',
+               'Barometer - in Hg',
+               'High Bar - in Hg',
+               'Low Bar - in Hg',
+               'Absolute Pressure - in Hg',
+               'High Temp 1 - °F',
+               'Low Temp 1 - °F',
+               'High Temp 2 - °F',
+               'Low Temp 2 - °F',
+               'High Leaf Wetness 1',
+               'Low Leaf Wetness 1',
+               'Leaf Wetness 1 Minutes',
+               'High Leaf Wetness 2',
+               'Low Leaf Wetness 2',
+               'Leaf Wetness 2 Minutes']
+
+columns_wanted_randolph_type_station = ['Temp 1 - °F',
+               'Temp 2 - °F',
+               'Leaf Wetness 1',
+               'Leaf Wetness 2']
+columns_wanted_singleton_station = ['Temp 1 - °F',
+               'Leaf Wetness 1']
+columns_wanted_singleton_water_tables_low_gap_station = ['Temp 2 - °F',
+               'Leaf Wetness 2']
