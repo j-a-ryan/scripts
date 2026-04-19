@@ -9,7 +9,7 @@ R = 'randolph'# Two pairs of temp/leaf wetness
 S = 'singleton' # One pair
 SLG_T = 'singleton-low-gap-tables' # One pair, but with Low Gap naming
 data_style = R 
-data_style = S
+# data_style = S
 # data_style = SLG_T
 #########################################################
 
