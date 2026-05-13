@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-import numbers
 import lookup
 import utilities as util
 
@@ -189,7 +188,7 @@ for i in range(len(nonzero_risk_periods)):
             net_all_sensor_pairs_infection_period_ru_avg = infection_period_ru_avg
         
 
-print(f"\n\nNet for all sensor pairs total RUs:")
+print("\n\nNet for all sensor pairs total RUs:")
 print("Total (incl dry-off) inf period RU: " + str(net_all_sensor_pairs_infection_period_ru))
 print("Wet-only (no dry-off) inf period RU: " + str(net_all_sensor_pairs_infection_period_ru_wet))
 print("     Avg (allowing half dry-off time) inf period RU: " + str(net_all_sensor_pairs_infection_period_ru_avg))
