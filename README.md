@@ -4,6 +4,8 @@ These Python scripts process micrometeorological data obtained from Davis Instru
 
 The randolph-style.py file is the runner. At the top you will see instructions to comment/uncomment to suit the CSV file.
 
+An additional script, randomize.py, takes lists of IDs and randomizes them for the purpose of randomized trials.
+
 ### Davis Leaf Wetness Sensor
 <img width="750" height="518" alt="image" src="https://github.com/user-attachments/assets/6db990b3-ce9d-4e11-9540-ae79bb4cff3d" />
 
